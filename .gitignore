@@ -1,0 +1,7 @@
+composer.lock
+vendor
+.php_cs.cache
+coverage
+.DS_Store
+Dockerfile
+bitbucket-pipelines.yml
