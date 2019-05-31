@@ -46,7 +46,7 @@ class WordPress
         if ($client == null) {
             $this->client = new Client([
                 'base_uri' => $this->server,
-                'timeout' => 15.0,
+                'timeout' => 30.0,
                 'headers' => [
                     'User-Agent' => 'Made I.T. - WordPress PHP SDK V'.$this->version,
                     'Accept' => 'application/json',
@@ -102,7 +102,6 @@ class WordPress
         $endPoint = '/'.ltrim($endPoint, '/');
         $headers = $this->buildHeader($endPoint);
 
-        \Log::info(print_r($body + $headers, true));
         try {
             $response = $this->client->request($requestType, $endPoint, $body + $headers);
         } catch (ServerException $e) {
@@ -123,7 +122,7 @@ class WordPress
             throw $e;
         }
 
-        if ($response->getStatusCode() == 200) {
+        if (in_array($response->getStatusCode(), [200, 201])) {
             $body = (string) $response->getBody();
             $this->latestHeader = $response->getHeaders();
         } elseif ($response->getStatusCode() == 401) {
@@ -143,7 +142,6 @@ class WordPress
     {
         $headers = ['headers' => []];
 
-        \Log::info('accessToken:'.$this->accessToken);
         if (!empty($this->accessToken)) {
             $headers['headers'] = ['Authorization' => 'Bearer '.$this->accessToken];
         }
@@ -169,6 +167,11 @@ class WordPress
     public function deleteCall($endPoint)
     {
         return $this->call('DELETE', $endPoint);
+    }
+
+    public function optionsCall($endPoint)
+    {
+        return $this->call('OPTIONS', $endPoint);
     }
 
     /**
