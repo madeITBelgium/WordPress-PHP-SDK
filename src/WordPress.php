@@ -11,6 +11,7 @@ use MadeITBelgium\WordPress\Exception\ObjectNotFoundException;
 use MadeITBelgium\WordPress\Exception\ValidationException;
 use MadeITBelgium\WordPress\Object\User;
 use MadeITBelgium\WordPress\Object\CustomPost;
+use MadeITBelgium\WordPress\Object\Tag;
 
 /**
  * WordPress PHP SDK.
@@ -110,7 +111,7 @@ class WordPress
             if ($e->getCode() == 401) {
                 throw new UnauthorizedException($e->getResponse(), $e);
             } elseif ($e->getCode() == 403) {
-                throw new ObjectNotFoundException($e->getCode(), $e);
+                throw new UnauthorizedException($e->getCode(), $e);
             } elseif ($e->getCode() == 404) {
                 throw new ObjectNotFoundException($e->getCode(), $e);
             } elseif ($e->getCode() == 400) {
@@ -208,6 +209,13 @@ class WordPress
         $post = new CustomPost($this, $postType);
 
         return $post;
+    }
+
+    public function tag()
+    {
+        $tag = new Tag($this);
+
+        return $tag;
     }
 
     public function outputAsObject($outputAsObject)
