@@ -1,5 +1,4 @@
 # WordPress API PHP SDK
-# PHP VAT Library
 [![Build Status](https://travis-ci.org/madeITBelgium/WordPress-PHP-SDK.svg?branch=master)](https://travis-ci.org/madeITBelgium/WordPress-PHP-SDK)
 [![Coverage Status](https://coveralls.io/repos/github/madeITBelgium/WordPress-PHP-SDK/badge.svg?branch=master)](https://coveralls.io/github/madeITBelgium/WordPress-PHP-SDK?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/madeITBelgium/WordPress-PHP-SDK/v/stable.svg)](https://packagist.org/packages/madeITBelgium/WordPress-PHP-SDK)
