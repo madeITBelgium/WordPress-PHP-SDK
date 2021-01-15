@@ -47,7 +47,7 @@ class WordPress
         if ($client == null) {
             $this->client = new Client([
                 'base_uri' => $this->server,
-                'timeout' => 30.0,
+                'timeout' => 60.0,
                 'headers' => [
                     'User-Agent' => 'Made I.T. - WordPress PHP SDK V'.$this->version,
                     'Accept' => 'application/json',
