@@ -41,7 +41,7 @@ class WordPressServiceProvider extends ServiceProvider
         $this->app->singleton('wordpress', function ($app) {
             $config = $app->make('config')->get('wordpress');
 
-            return new WordPress($config['app_url']);
+            return new WordPress($config['app_url'], $config['client'] ?? null);
         });
     }
 
