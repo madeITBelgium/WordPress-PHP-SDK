@@ -11,7 +11,7 @@
 Require this package in your `composer.json` and update composer.
 
 ```php
-"madeitbelgium/wordpress-php-sdk": "^1.1"
+"madeitbelgium/wordpress-php-sdk": "^1.2"
 ```
 Or
 ```php
