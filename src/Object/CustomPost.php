@@ -92,7 +92,7 @@ class CustomPost
      */
     public function delete($id)
     {
-        $result = $this->offrea->deleteCall('/wp-json/wp/v2/'.$this->postType.'/'.$id);
+        $result = $this->wordpress->deleteCall('/wp-json/wp/v2/'.$this->postType.'/'.$id);
 
         return $result;
     }
