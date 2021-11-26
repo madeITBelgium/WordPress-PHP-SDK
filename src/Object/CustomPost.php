@@ -21,7 +21,7 @@ class CustomPost
      *
      * @param $wordpressSdk
      */
-    public function __construct($wordPressSdk, $postType = 'post')
+    public function __construct($wordPressSdk, $postType = 'posts')
     {
         $this->wordpress = $wordPressSdk;
         $this->postType = $postType;
