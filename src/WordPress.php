@@ -199,7 +199,7 @@ class WordPress
 
     public function post()
     {
-        $post = new CustomPost($this, 'post');
+        $post = new CustomPost($this, 'posts');
 
         return $post;
     }
