@@ -24,7 +24,7 @@ use MadeITBelgium\WordPress\Object\Tag;
  */
 class WordPress
 {
-    protected $version = '1.0.0';
+    protected $version = '1.4.0';
     private $server = 'https://localhost';
     private $accessToken = null;
 
@@ -32,6 +32,10 @@ class WordPress
     private $outputAsObject = true;
     private $rawOutput = false;
     private $latestHeader = null;
+
+    //application password
+    private $username = null;
+    private $password = null;
 
     /**
      * Construct WordPress.
@@ -83,6 +87,41 @@ class WordPress
     {
         return $this->latestHeader;
     }
+
+    public function setServer($url)
+    {
+        $this->server = $url;
+        $this->client = new Client([
+            'base_uri' => $this->server,
+            'timeout' => 60.0,
+            'headers' => [
+                'User-Agent' => 'Made I.T. - WordPress PHP SDK V'.$this->version,
+                'Accept' => 'application/json',
+            ],
+            'verify' => true,
+        ]);
+        return $this;
+    }
+
+    public function getServer()
+    {
+        return $this->server;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+    public function setApplicationPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+
+
 
     /**
      * Execute API call.
@@ -145,6 +184,10 @@ class WordPress
 
         if (!empty($this->accessToken)) {
             $headers['headers'] = ['Authorization' => 'Bearer '.$this->accessToken];
+        }
+
+        if(!empty($this->username) && !empty($this->password)) {
+            $headers['auth'] = [$this->username, $this->password];
         }
 
         return $headers;
