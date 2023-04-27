@@ -44,6 +44,14 @@ use MadeITBelgium\WordPress\WordPressFacade as WordPress;
 WordPress::setAccessToken($token);
 ```
 
+### Application Password
+You can use the newly introduced Application Password (in WordPress 5.6).
+```
+$wp = WordPress::setServer('https://www.example.com')
+    ->setUsername('username')
+    ->setApplicationPassword('application password');
+```
+
 ## Interact with objects
 ### User
 WordPress Rest API documentation: https://developer.wordpress.org/rest-api/reference/users/
