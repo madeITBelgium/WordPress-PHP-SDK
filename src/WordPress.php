@@ -132,7 +132,7 @@ class WordPress
      */
     private function call($requestType, $endPoint, $data = null)
     {
-        endPoint = '/'.ltrim($endPoint, '/');
+        $endPoint = '/'.ltrim($endPoint, '/');
         
         $body = [];
         if ($data != null && isset($data['multipart'])) {
