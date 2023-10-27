@@ -42,9 +42,9 @@ class CustomPost
      *
      * @return mixed
      */
-    public function list()
+    public function list($data = [])
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/'.$this->postType);
+        $result = $this->wordpress->getCall('/wp-json/wp/v2/'.$this->postType, $data);
 
         return $result;
     }
