@@ -40,9 +40,9 @@ class Post
      *
      * @return mixed
      */
-    public function list()
+    public function list($data = null)
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/posts');
+        $result = $this->wordpress->getCall('/wp-json/wp/v2/posts', $data);
 
         return $result;
     }
