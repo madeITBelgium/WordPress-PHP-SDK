@@ -132,11 +132,15 @@ class WordPress
      */
     private function call($requestType, $endPoint, $data = null)
     {
+        endPoint = '/'.ltrim($endPoint, '/');
+        
         $body = [];
         if ($data != null && isset($data['multipart'])) {
             $body = $data;
-        } elseif ($data != null) {
+        } elseif ($data != null && $requestType !== 'GET') {
             $body = ['form_params' => $data];
+        } else if($data !== null && $requestType === 'GET') {
+            $endPoint .= '?'.http_build_query($data);
         }
 
         $endPoint = '/'.ltrim($endPoint, '/');
@@ -198,9 +202,9 @@ class WordPress
         return $this->call('POST', $endPoint, $data);
     }
 
-    public function getCall($endPoint)
+    public function getCall($endPoint, $data = null)
     {
-        return $this->call('GET', $endPoint);
+        return $this->call('GET', $endPoint, $data);
     }
 
     public function putCall($endPoint, $data)
