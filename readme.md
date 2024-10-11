@@ -28,7 +28,7 @@ You can use the facade for shorter code. Add this to your aliases:
 
 Add the config files
 ```php
-php artisan vendor:publish --provider="MadeITBelgium\WordPress\WordPressServiceProvider"'
+php artisan vendor:publish --provider="MadeITBelgium\WordPress\WordPressServiceProvider"
 ```
 
 # Documentation
