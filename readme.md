@@ -11,10 +11,6 @@
 Require this package in your `composer.json` and update composer.
 
 ```php
-"madeitbelgium/wordpress-php-sdk": "^1.2"
-```
-Or
-```php
 composer require madeitbelgium/wordpress-php-sdk
 ```
 
@@ -28,6 +24,11 @@ You can use the facade for shorter code. Add this to your aliases:
 
 ```php
 'WP' => MadeITBelgium\WordPress\WordPressFacade::class,
+```
+
+Add the config files
+```php
+php artisan vendor:publish --provider="MadeITBelgium\WordPress\WordPressServiceProvider"'
 ```
 
 # Documentation
