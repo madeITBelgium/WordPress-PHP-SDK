@@ -44,7 +44,7 @@ class CustomPost
      */
     public function list($data = [])
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/'.$this->postType, $data);
+        $result = $this->wordpress->getCall('/wp/v2/'.$this->postType, $data);
 
         return $result;
     }
@@ -56,7 +56,7 @@ class CustomPost
      */
     public function create($data)
     {
-        $result = $this->wordpress->postCall('/wp-json/wp/v2/'.$this->postType, $data);
+        $result = $this->wordpress->postCall('/wp/v2/'.$this->postType, $data);
 
         return $result;
     }
@@ -68,7 +68,7 @@ class CustomPost
      */
     public function get($id)
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/'.$this->postType.'/'.$id);
+        $result = $this->wordpress->getCall('/wp/v2/'.$this->postType.'/'.$id);
 
         return $result;
     }
@@ -80,7 +80,7 @@ class CustomPost
      */
     public function update($id, $data)
     {
-        $result = $this->wordpress->postCall('/wp-json/wp/v2/'.$this->postType.'/'.$id, $data);
+        $result = $this->wordpress->postCall('/wp/v2/'.$this->postType.'/'.$id, $data);
 
         return $result;
     }
@@ -92,7 +92,7 @@ class CustomPost
      */
     public function delete($id)
     {
-        $result = $this->wordpress->deleteCall('/wp-json/wp/v2/'.$this->postType.'/'.$id);
+        $result = $this->wordpress->deleteCall('/wp/v2/'.$this->postType.'/'.$id);
 
         return $result;
     }

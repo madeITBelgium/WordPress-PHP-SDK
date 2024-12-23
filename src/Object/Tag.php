@@ -42,7 +42,7 @@ class Tag
      */
     public function list($data = null)
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/tags', $data);
+        $result = $this->wordpress->getCall('/wp/v2/tags', $data);
 
         return $result;
     }
@@ -54,7 +54,7 @@ class Tag
      */
     public function create($data)
     {
-        $result = $this->wordpress->postCall('/wp-json/wp/v2/tags', $data);
+        $result = $this->wordpress->postCall('/wp/v2/tags', $data);
 
         return $result;
     }
@@ -66,7 +66,7 @@ class Tag
      */
     public function get($id)
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/tags/'.$id);
+        $result = $this->wordpress->getCall('/wp/v2/tags/'.$id);
 
         return $result;
     }
@@ -78,7 +78,7 @@ class Tag
      */
     public function update($id, $data)
     {
-        $result = $this->wordpress->postCall('/wp-json/wp/v2/tags/'.$id, $data);
+        $result = $this->wordpress->postCall('/wp/v2/tags/'.$id, $data);
 
         return $result;
     }
@@ -90,7 +90,7 @@ class Tag
      */
     public function delete($id)
     {
-        $result = $this->wordpress->deleteCall('/wp-json/wp/v2/tags/'.$id);
+        $result = $this->wordpress->deleteCall('/wp/v2/tags/'.$id);
 
         return $result;
     }

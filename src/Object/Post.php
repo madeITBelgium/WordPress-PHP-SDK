@@ -42,7 +42,7 @@ class Post
      */
     public function list($data = null)
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/posts', $data);
+        $result = $this->wordpress->getCall('/wp/v2/posts', $data);
 
         return $result;
     }
@@ -54,7 +54,7 @@ class Post
      */
     public function create($data)
     {
-        $result = $this->wordpress->postCall('/wp-json/wp/v2/posts', $data);
+        $result = $this->wordpress->postCall('/wp/v2/posts', $data);
 
         return $result;
     }
@@ -66,7 +66,7 @@ class Post
      */
     public function get($id)
     {
-        $result = $this->wordpress->getCall('/wp-json/wp/v2/posts/'.$id);
+        $result = $this->wordpress->getCall('/wp/v2/posts/'.$id);
 
         return $result;
     }
@@ -78,7 +78,7 @@ class Post
      */
     public function update($id, $data)
     {
-        $result = $this->wordpress->postCall('/wp-json/wp/v2/posts/'.$id, $data);
+        $result = $this->wordpress->postCall('/wp/v2/posts/'.$id, $data);
 
         return $result;
     }
@@ -90,7 +90,7 @@ class Post
      */
     public function delete($id)
     {
-        $result = $this->wordpress->deleteCall('/wp-json/wp/v2/posts/'.$id);
+        $result = $this->wordpress->deleteCall('/wp/v2/posts/'.$id);
 
         return $result;
     }

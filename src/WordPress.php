@@ -37,6 +37,8 @@ class WordPress
     private $username = null;
     private $password = null;
 
+    private $apiPrefix = '/wp-json';
+
     /**
      * Construct WordPress.
      *
@@ -44,9 +46,10 @@ class WordPress
      * @param $clientSecret;
      * @param $client
      */
-    public function __construct($appUrl, $client = null)
+    public function __construct($appUrl, $client = null, string $apiPrefix = '/wp-json')
     {
         $this->server = $appUrl;
+        $this->apiPrefix = $apiPrefix;
 
         if ($client == null) {
             $this->client = new Client([
@@ -133,6 +136,7 @@ class WordPress
     private function call($requestType, $endPoint, $data = null)
     {
         $endPoint = '/'.ltrim($endPoint, '/');
+        $endPoint = $this->apiPrefix.$endPoint;
         
         $body = [];
         if ($data != null && isset($data['multipart'])) {
