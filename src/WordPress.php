@@ -24,7 +24,7 @@ use MadeITBelgium\WordPress\Object\Tag;
  */
 class WordPress
 {
-    protected $version = '1.4.0';
+    protected $version = '1.6.0';
     private $server = 'https://localhost';
     private $accessToken = null;
 
