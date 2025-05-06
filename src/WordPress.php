@@ -91,6 +91,17 @@ class WordPress
         return $this->latestHeader;
     }
 
+    public function setApiPrefix($apiPrefix)
+    {
+        $this->apiPrefix = $apiPrefix;
+        return $this;
+    }
+
+    public function getApiPrefix()
+    {
+        return $this->apiPrefix;
+    }
+
     public function setServer($url)
     {
         $this->server = $url;
